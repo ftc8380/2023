@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Robot: Auto Park LB", group="Robot")
-public class AutoParkLB extends LinearOpMode {
+@Autonomous(name="Robot: Auto Park RB", group="Robot")
+public class AutoParkRB extends LinearOpMode {
     // Assume these are defined earlier in your code
     DcMotor motorFrontLeft;
     DcMotor motorBackLeft;
@@ -59,7 +59,7 @@ public class AutoParkLB extends LinearOpMode {
 
             // Strafe right for 4 seconds
             y = 0.0;
-            x = -1.0;
+            x = 1.0;
             updateMotorPowers(x, y, rx);
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 4.0)) {

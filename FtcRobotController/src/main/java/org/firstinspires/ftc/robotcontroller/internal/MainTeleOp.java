@@ -126,7 +126,7 @@ public class MainTeleOp extends OpMode {
 
         if (gamepad2.x) {
             //move to grab position
-            flippyPos = -138;
+            flippyPos = -33;
             /*flippy.setPower(0.6);
             flippy.setTargetPosition(137);
             flippy.setPower(1.0);*/
@@ -136,8 +136,8 @@ public class MainTeleOp extends OpMode {
 
         if (gamepad2.y) {
             // move to put position
-            flippyPos = -2385;
-            twistyPos = 0.14;
+            flippyPos = -(2388 + 33);
+            twistyPos = 0.18;
             grabbyPos = 0.63;
         }
         if (gamepad2.b) {
