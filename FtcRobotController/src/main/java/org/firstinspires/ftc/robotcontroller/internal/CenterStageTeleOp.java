@@ -33,8 +33,6 @@ public class CenterStageTeleOp extends LinearOpMode {
         BNO055IMU imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(new BNO055IMU.Parameters());
 
-        Sliders v4b = new Sliders(hardwareMap);
-
         //potato
         waitForStart();
 
@@ -78,23 +76,6 @@ public class CenterStageTeleOp extends LinearOpMode {
             motorBackLeft.setPower(backLeftPower);
             motorFrontRight.setPower(frontRightPower);
             motorBackRight.setPower(backRightPower);
-
-            if(gamepad2.dpad_up) {
-                v4b.highJunction();
-            } else if(gamepad2.dpad_right) {
-                v4b.midJunction();
-            } else if(gamepad2.dpad_left) {
-                v4b.lowJunction();
-            } else if(gamepad2.dpad_down) {
-                v4b.floor();
-            }
-
-            if(gamepad2.right_trigger > 0.5) {
-                v4b.closeClaw();
-            } else if(gamepad2.left_trigger > 0.5) {
-                v4b.openClaw();
-            }
-
         }
     }
 }
