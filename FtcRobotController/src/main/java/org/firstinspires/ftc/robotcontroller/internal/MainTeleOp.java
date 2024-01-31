@@ -2,12 +2,17 @@ package org.firstinspires.ftc.robotcontroller.internal;
 
 import android.util.Log;
 
+import com.acmerobotics.dashboard.FtcDashboard;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
+
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.openftc.easyopencv.OpenCvCameraFactory;
+import org.openftc.easyopencv.OpenCvWebcam;
 
 @TeleOp
 public class MainTeleOp extends OpMode {
@@ -28,6 +33,9 @@ public class MainTeleOp extends OpMode {
 
     @Override
     public void init() {
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        OpenCvWebcam camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam"), cameraMonitorViewId);
+        FtcDashboard.getInstance().startCameraStream(camera, 0);
         flippy = hardwareMap.dcMotor.get("flippy");
         flippyPos = flippy.getCurrentPosition();
         flippy.setTargetPosition(flippyPos);
